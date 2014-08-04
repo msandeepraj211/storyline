@@ -15,17 +15,19 @@ myApp.controller('MainCtrl',('scope', function($scope){
     $scope.showPage = function(index){
         $scope.currentPage = index;
         if($scope.pages[$scope.currentPage].title =='' && $scope.pages[$scope.currentPage].description ==''){
-            $('#content').css('display','none');
-            $('#bgVideo').attr('controls','controls').attr('muted','muted');
+            $('#content').css('display','none');/*
+            $('#bgVideo').attr('muted','muted');*/
+            $('#videoControlsBar').css('display','block');
         }else{
             $('#content').css('display','block');
-            $('#bgVideo').removeAttr('controls').removeAttr('muted');
+            $('#videoControlsBar').css('display','none');
 
         }
         if(!$scope.$$phase) {
             $scope.$apply();
         }
     }
+    $scope.showPage(0);
 
 
 

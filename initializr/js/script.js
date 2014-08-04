@@ -19,6 +19,8 @@ function initializePlayer(){
     vid.addEventListener("seeking",vidSeek,false);*/
     mutebtn.addEventListener("click",vidMute,false);
     volumeslider.addEventListener("change",setVolume,false);
+
+    $("input[type='range']").css('top',function(){return (($('#mutebtn').height()/2)-5)+'px'});
 }
 
 
@@ -29,10 +31,10 @@ window.onload = initializePlayer;
 function playPause(){
     if(vid.paused){
         vid.play();
-        playbtn.innerHTML="Pause";
+        $('#playpausebtn img').attr('src','./images/pause.png');
     }else{
         vid.pause();
-        playbtn.innerHTML="Play";
+        $('#playpausebtn img').attr('src','./images/play.png');
     }
 }
 
@@ -47,7 +49,7 @@ function seekTimeUpdate(){
 
     seekslider.value= vid.currentTime*(100/vid.duration);
 
-    var curMins = Math.floor(vid.currentTime/60);
+/*    var curMins = Math.floor(vid.currentTime/60);
     var curSecs = Math.floor(vid.currentTime-curMins*60);
     var durMins = Math.floor(vid.duration/60);
     var durSecs = Math.floor(vid.duration-durMins*60);
@@ -58,24 +60,33 @@ function seekTimeUpdate(){
         durSecs = "0"+durSecs;
     }
     curtimetext.innerHTML =curMins+":"+curSecs;
-    durtimetext.innerHTML =durMins+":"+durSecs;
+    durtimetext.innerHTML =durMins+":"+durSecs;*/
 }
 
 function vidMute(){
     if(vid.muted){
-        vid.muted=false;
-        mutebtn.innerHTML="Mute";
+        vid.muted=false;/*
+        mutebtn.style.background=" url(./images/mute.png)";*/
+        $('#mutebtn img').attr('src','./images/unmute.png');
         volumeslider.value=100;
         vid.volume = volumeslider.value/100;
     }else{
-        vid.muted=true;
-        mutebtn.innerHTML="UnMute";
+        vid.muted=true;/*
+        mutebtn.style.background=" url(./images/unmute.png)";*/
+        $('#mutebtn img').attr('src','./images/mute.png');
         volumeslider.value=0;
         vid.volume = volumeslider.value/100;
     }
 }
 function setVolume(){
     vid.muted=false;
-    mutebtn.innerHTML="Mute";
+    $('#mutebtn img').attr('src','./images/unmute.png');
     vid.volume = volumeslider.value/100;
 };
+
+//vertical align bars
+window.onresize = function() {
+    $("input[type='range']").css('top',function(){return (($('#mutebtn').height()/2)-5)+'px'});
+};
+
+$("input[type='range']").css('top',function(){return (($('#mutebtn').height()/2)-5)+'px'});

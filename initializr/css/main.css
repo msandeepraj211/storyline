@@ -57,13 +57,45 @@ video::-webkit-media-controls-panel{
 #videoControlsBar{
     position: absolute;
     z-index: 1234;
-    top:2vh;
-    left:1vh;
+    top:80%;
+    left:25%;
+    font-family: "TREBUCHET MS";
+    background-color: #222222;
+    width: 50%;
+    height: auto;
+    border-radius: 5px;
+}
+#playpausebtn{
+/*    background: url(./../images/pause.png) ;
+    border: none;
+    height: 50px;
+    width: 50px;*/
+    cursor: pointer;
+    opacity: 0.7;
+    background-size: contain!important;
+}
+#playpausebtn:hover{
+    opacity: 1;
+}
+#mutebtn{
+/*    background: url(./../images/mute.png);
+    border: none;
+    height: 50px;
+    width: 50px;*/
+    cursor: pointer;
+    opacity: 0.7;
+    background-size: contain!important;
+}
+#mutebtn:hover{
+    opacity: 1;
 }
 input[type='range']{
     -webkit-appearance:none!important;
-    background: #666;
-    height: 5px;
+    background: #000;
+    border: #666 1px solid;
+    height: 10px;
+    top:50vh;
+    position: absolute;
 }
 input[type='range']::-webkit-slider-thumb{
     -webkit-appearance:none!important;
@@ -72,6 +104,11 @@ input[type='range']::-webkit-slider-thumb{
     width: 15px;
     border-radius: 100%;
     cursor: pointer;
+    display: table;
+}
+.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{
+    padding: 0;
+    margin: 0;
 }
 /*input[type='range']::slider-thumb{
     appearance:none!important;
@@ -82,10 +119,17 @@ input[type='range']::-webkit-slider-thumb{
     cursor: pointer;
 }*/
 
+#videoControlsBar p{
+    margin-top: 15px;
+}
 
-
-
-
+.row{
+    margin: 0!important;
+    padding: 5px;
+}
+#sidebar{
+    height: 100vh;
+}
 
 
 
